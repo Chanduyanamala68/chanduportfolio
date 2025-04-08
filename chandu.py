@@ -1,11 +1,14 @@
 import streamlit as st
 from PIL import Image
+import requests
+from io import BytesIO
 
 # Load your profile image safely
 try:
     image = Image.open("assets/profile.jpg")
 except FileNotFoundError:
-    image = Image.open("https://via.placeholder.com/150")  # Placeholder if local image fails
+    response = requests.get("https://via.placeholder.com/150")
+    image = Image.open(BytesIO(response.content))
 
 # Set page config
 st.set_page_config(page_title="Chandu's Portfolio", page_icon=":briefcase:", layout="wide")
@@ -31,6 +34,19 @@ st.markdown("""
         box-shadow: 0 4px 8px rgba(255,255,255,0.05);
         margin-bottom: 20px;
     }
+    .link-box {
+        background-color: #2a2d36;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        margin-top: 10px;
+        text-align: center;
+    }
+    .link-box a {
+        color: #4fc3f7;
+        text-decoration: none;
+        font-weight: bold;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -44,7 +60,7 @@ with col2:
     st.markdown('<div class="title-box">', unsafe_allow_html=True)
     st.title("Chandu Yaramala")
     st.subheader("Fresher | Azure & AWS Cloud | DevOps Enthusiast")
-    st.markdown("<p>Email: your_email@example.com | GitHub: github.com/yourprofile</p>", unsafe_allow_html=True)
+    st.markdown("<p>Email:chanduyanamala68@gmail.com| GitHub: <a href='https://github.com/Chanduyanamala68' target='_blank'>github.com/yourprofile</a></p>", unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # About section
@@ -64,6 +80,8 @@ st.write("""
 - **Azure Services:** Blob Storage, Virtual Machines, ACR, Azure SQL, Networking, Application Gateway, Site Recovery
 - **AWS Services:** EC2, IAM, VPC, Security Groups, NACLs, Load Balancers
 - **Security & Recovery:** Azure Security Center, Recovery Vault, Availability Zones
+- **IaC & Automation:** Terraform Modules, Shell Scripting
+- **Containers:** Docker, ACR, ECR
 """)
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -76,7 +94,16 @@ st.write("""
 
 2. **CI/CD with GitHub Actions**  
    Built and deployed containerized applications using GitHub Actions and Docker.
+
+3. **Azure Recovery & Backup Project**  
+   Configured Recovery Services Vault, Backup Policies, and tested VM restores in Azure.
 """)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Links Section
+st.markdown('<div class="link-box">', unsafe_allow_html=True)
+st.markdown("[🌐 Visit My GitHub](https://github.com/Chanduyanamala68)", unsafe_allow_html=True)
+st.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/chandu-yanamala-73455a356/)", unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
