@@ -1,68 +1,86 @@
 import streamlit as st
 from PIL import Image
 
-# ----- Page Config -----
-st.set_page_config(page_title="Chandu Portfolio", page_icon="🌐", layout="wide")
-
-# ----- Sidebar -----
-with st.sidebar:
+# Load your profile image safely
+try:
     image = Image.open("assets/profile.jpg")
-    st.image(image, width=200)
-    
-    st.title("Chandu")
-    st.subheader("💼 DevOps & Cloud Enthusiast")
+except FileNotFoundError:
+    image = Image.open("https://via.placeholder.com/150")  # Placeholder if local image fails
 
-    st.markdown("---")
-    st.markdown("📧 Email: chandudevops@example.com")
-    st.markdown("🌐 [LinkedIn](https://www.linkedin.com/in/chandu-devops)")
-    st.markdown("🐙 [GitHub](https://github.com/chandudevops)")
-    st.markdown("📄 [Resume](https://link-to-resume.com)")
+# Set page config
+st.set_page_config(page_title="Chandu's Portfolio", page_icon=":briefcase:", layout="wide")
 
-# ----- Main Page -----
-st.title("👋 Hello, I'm Chandu!")
-st.write("Recent graduate and passionate DevOps learner with hands-on experience in Azure, AWS, Docker, Terraform, and Kubernetes. Looking forward to starting my career in cloud and DevOps engineering.")
+# Custom CSS styles for dark mode and boxes
+st.markdown("""
+    <style>
+    body {
+        background-color: #0e1117;
+        color: white;
+    }
+    .title-box {
+        background-color: #1e2128;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        margin-bottom: 20px;
+    }
+    .section-box {
+        background-color: #1c1f26;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+        margin-bottom: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# ----- Skills -----
-st.markdown("## 🚀 Skills")
-col1, col2 = st.columns(2)
+# Main content layout
+col1, col2 = st.columns([1, 2])
 
 with col1:
-    st.markdown("**Cloud Platforms:**")
-    st.write("- Azure (VMs, NSG, Blob, ACR)")
-    st.write("- AWS (EC2, VPC, S3, IAM)")
-
-    st.markdown("**Infrastructure as Code:**")
-    st.write("- Terraform")
-
-    st.markdown("**Version Control:**")
-    st.write("- Git & GitHub")
+    st.image(image, width=200)
 
 with col2:
-    st.markdown("**Containerization:**")
-    st.write("- Docker")
-    st.write("- Kubernetes (Basics)")
+    st.markdown('<div class="title-box">', unsafe_allow_html=True)
+    st.title("Chandu Yaramala")
+    st.subheader("Fresher | Azure & AWS Cloud | DevOps Enthusiast")
+    st.markdown("<p>Email: your_email@example.com | GitHub: github.com/yourprofile</p>", unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown("**CI/CD:**")
-    st.write("- GitHub Actions (Basic)")
+# About section
+st.markdown('<div class="section-box">', unsafe_allow_html=True)
+st.header("About Me")
+st.write("""
+I'm a passionate and highly motivated Cloud & DevOps fresher with hands-on experience in tools like Azure, AWS, Docker, Git, and Terraform. Seeking opportunities to contribute and grow in a dynamic cloud environment.
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 
-# ----- Projects -----
-st.markdown("## 🧪 Projects")
+# Skills section
+st.markdown('<div class="section-box">', unsafe_allow_html=True)
+st.header("Cloud & DevOps Skills")
+st.write("""
+- **Cloud Platforms:** Azure, AWS (EC2, IAM, VPC, S3, ELB, NAT Gateway)
+- **DevOps Tools:** Git, GitHub, CI/CD, Docker, Terraform
+- **Azure Services:** Blob Storage, Virtual Machines, ACR, Azure SQL, Networking, Application Gateway, Site Recovery
+- **AWS Services:** EC2, IAM, VPC, Security Groups, NACLs, Load Balancers
+- **Security & Recovery:** Azure Security Center, Recovery Vault, Availability Zones
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown("### 📌 3-Tier Architecture using Azure NSG")
-st.write("- Created a secure web-app using Azure NSG to control inbound/outbound traffic between Web, App, and DB tiers.")
+# Projects section
+st.markdown('<div class="section-box">', unsafe_allow_html=True)
+st.header("Projects")
+st.write("""
+1. **Multi-Cloud Deployment using Terraform**  
+   Automated infrastructure deployment on both AWS and Azure using Terraform scripts.
 
-st.markdown("### 📌 AWS VPC with NAT Gateway")
-st.write("- Built a secure VPC setup with public and private subnets and configured NAT gateway to allow outbound internet from private subnet.")
+2. **CI/CD with GitHub Actions**  
+   Built and deployed containerized applications using GitHub Actions and Docker.
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 
-# ----- Contact -----
-st.markdown("## 📬 Contact Me")
-contact_form = """
-<form action="https://formsubmit.co/YOUR-EMAIL@domain.com" method="POST">
-     <input type="text" name="name" placeholder="Your name" required><br><br>
-     <input type="email" name="email" placeholder="Your email" required><br><br>
-     <textarea name="message" placeholder="Your message here" rows="5" required></textarea><br><br>
-     <button type="submit">Send</button>
-</form>
-"""
-
-st.markdown(contact_form, unsafe_allow_html=True)
+# Footer
+st.markdown('<div class="section-box">', unsafe_allow_html=True)
+st.write("Let's connect! Feel free to reach out for collaboration or opportunities.")
+st.markdown("<p style='font-size: small;'>Made with ❤️ using Streamlit</p>", unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
