@@ -17,8 +17,9 @@ def home():
         "summary": "Passionate about cloud technologies...",
     }
     education_data = [
-        {"institution": "Prakasam...", "degree": "B.Tech", ...},
-        {"institution": "Narayana...", "degree": "Intermediate", ...}
+    {"institution": "Prakasam Engineering College", "degree": "Bachelor of Technology", "cgpa": "7.0", "years": "08/2020-05/2024"},
+    {"institution": "Narayana Junior College", "degree": "Intermediate Education", "gpa": "8.6", "years": "08/2018-05/2020"},
+    {"institution": "Samskruti High School", "degree": "Senior Secondary Certificate", "gpa": "8.8/10", "years": "06/2017-05/2018"}
     ]
     skills_data = {
         "Cloud Platforms": ["Azure", "AWS"],
