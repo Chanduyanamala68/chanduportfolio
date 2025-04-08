@@ -1,0 +1,51 @@
+def generate_skills_html(skills_data):
+    """
+    Generates the HTML for the skills section of the portfolio.
+
+    Args:
+        skills_data (dict): A dictionary where keys are skill categories
+                           and values are lists of skills.
+
+    Returns:
+        str: HTML string for the skills section.
+    """
+
+    html = """
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+    """
+
+    for category, skills in skills_data.items():
+        html += f"""
+                <div class="skill-category">
+                    <h3>{category}</h3>
+                    <ul>
+        """
+        for skill in skills:
+            html += f"               <li>{skill}</li>\n"
+        html += """
+                    </ul>
+                </div>
+        """
+
+    html += """
+            </div>
+        </div>
+    </section>
+    """
+    return html
+
+# Sample data (replace with your actual data)
+skills_data = {
+    "Cloud Platforms": ["Microsoft Azure", "AWS"],
+    "Azure Services": ["Azure Active Directory", "Virtual Machines", "Blob Storage", "..."],
+    "DevOps Tools": ["Terraform", "Git", "GitHub", "Docker", "..."],
+    "Security": ["Cloud Security", "IAM", "Network Security"]
+}
+
+skills_html = generate_skills_html(skills_data)
+print(skills_html)
+
+# You would then insert this 'skills_html' string into your main HTML file

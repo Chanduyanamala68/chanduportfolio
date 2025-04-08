@@ -1,0 +1,36 @@
+def generate_project_cards(projects_data):
+    """Generates HTML for project cards."""
+
+    html = """<section id="projects" class="section">
+                <div class="container">
+                    <h2>Projects</h2>"""
+
+    for project in projects_data:
+        html += f"""
+                    <div class="project-card">
+                        <h3>{project['title']}</h3>
+                        <p>{project['description']}</p>
+                        <p><strong>Technologies Used:</strong> {project['technologies']}</p>
+                    </div>
+                """
+
+    html += """
+                </div>
+            </section>"""
+    return html
+
+projects_data = [
+    {
+        "title": "3-Tier Architecture using NSG Project",
+        "description": "Implemented Azure Network Security Groups (NSGs) ...", # shortened for brevity
+        "technologies": "Azure NSG Configuration, 3-Tier Architecture, ..."
+    },
+    {
+        "title": "Secure VPC Architecture Using a NAT Gateway",
+        "description": "Implemented a secure VPC setup ...", # shortened
+        "technologies": "AWS Services: VPC, NAT Gateway, EC2, ..."
+    }
+]
+
+projects_html = generate_project_cards(projects_data)
+print(projects_html)
