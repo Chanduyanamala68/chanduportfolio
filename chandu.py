@@ -71,16 +71,16 @@ if st and Image:
         st.image(image, width=200)
 
     with col2:
-        
-    st.markdown('<div class="title-box">', unsafe_allow_html=True)
-    st.title("Chandu Yaramala")
-    st.subheader("Fresher | Azure & AWS Cloud | DevOps Enthusiast")
-    st.markdown("""
-        <p>Email: chanduyanamala68@gmail.com<br>
-        Phone: 8142331266<br>
-        GitHub: <a href='https://github.com/Chanduyanamala68' target='_blank'>github.com/Chanduyanamala68</a></p>
-    """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('<div class="title-box">', unsafe_allow_html=True)
+        st.title("Chandu Yaramala")
+        st.subheader("Fresher | Azure & AWS Cloud | DevOps Enthusiast")
+        st.markdown("""
+            <p>Email: chanduyanamala68@gmail.com<br>
+            Phone: 8142331266<br>
+            GitHub: <a href='https://github.com/Chanduyanamala68' target='_blank'>github.com/Chanduyanamala68</a></p>
+        """, unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
 
 
     # About Me
