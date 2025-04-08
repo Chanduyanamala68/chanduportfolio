@@ -2,117 +2,67 @@ import streamlit as st
 from PIL import Image
 
 # ----- Page Config -----
-st.set_page_config(page_title="Chandu | DevOps Engineer", page_icon="💼", layout="wide")
+st.set_page_config(page_title="Chandu Portfolio", page_icon="🌐", layout="wide")
 
-# ----- Header -----
-st.title("👨‍💻 Chandu Yanamala")
-st.subheader("🚀 Aspiring DevOps & Cloud Engineer | Multi-Cloud | Automation Enthusiast")
+# ----- Sidebar -----
+with st.sidebar:
+    image = Image.open("assets/profile.jpg")
+    st.image(image, width=200)
+    
+    st.title("Chandu")
+    st.subheader("💼 DevOps & Cloud Enthusiast")
 
-st.write("📍 Hyderabad, India | 📧 chanduyanamala68@gmail.com | 📞 +91 8142331266")
-st.write("[🔗 LinkedIn](https://www.linkedin.com/in/chandu-yanamala-3b12a334a/) | [📄 Download Resume](https://your-resume-link.com)")
+    st.markdown("---")
+    st.markdown("📧 Email: chandudevops@example.com")
+    st.markdown("🌐 [LinkedIn](https://www.linkedin.com/in/chandu-devops)")
+    st.markdown("🐙 [GitHub](https://github.com/chandudevops)")
+    st.markdown("📄 [Resume](https://link-to-resume.com)")
 
-st.markdown("---")
-
-# ----- Profile Summary -----
-st.header("📝 About Me")
-st.write("""
-Hello! I'm Chandu, a passionate DevOps enthusiast eager to kickstart my career in cloud engineering.  
-I specialize in building and automating scalable cloud infrastructure using Azure, AWS, Docker, and Terraform.  
-My strength lies in continuous learning, problem-solving, and collaborating on impactful cloud solutions.
-""")
-
-# ----- Highlights -----
-st.header("🌟 Highlights")
-st.markdown("""
-- 🛠️ Hands-on with **multi-cloud platforms**: Azure & AWS  
-- ⚙️ Worked on **end-to-end DevOps pipelines** using GitHub Actions & Azure DevOps  
-- 🧠 Quick learner, passionate about **automation, scripting, and CI/CD**  
-- 👨‍💼 Actively seeking opportunities as **DevOps Engineer | Cloud Engineer | Site Reliability Engineer**
-""")
+# ----- Main Page -----
+st.title("👋 Hello, I'm Chandu!")
+st.write("Recent graduate and passionate DevOps learner with hands-on experience in Azure, AWS, Docker, Terraform, and Kubernetes. Looking forward to starting my career in cloud and DevOps engineering.")
 
 # ----- Skills -----
-st.header("🧰 Skills")
-
+st.markdown("## 🚀 Skills")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("☁️ Cloud & Infrastructure")
-    st.markdown("""
-    - Microsoft Azure: VMs, Blob, ACR, SQL, AD, NSG, App Gateway  
-    - AWS: EC2, VPC, IAM, EFS, EKS, Load Balancer, Security Groups, Lambda  
-    - Terraform: Infrastructure as Code  
-    - Git, GitHub, Azure Repos
-    """)
+    st.markdown("**Cloud Platforms:**")
+    st.write("- Azure (VMs, NSG, Blob, ACR)")
+    st.write("- AWS (EC2, VPC, S3, IAM)")
+
+    st.markdown("**Infrastructure as Code:**")
+    st.write("- Terraform")
+
+    st.markdown("**Version Control:**")
+    st.write("- Git & GitHub")
 
 with col2:
-    st.subheader("🔧 DevOps & Tools")
-    st.markdown("""
-    - Docker & Docker Swarm  
-    - Kubernetes (Basics)  
-    - CI/CD: GitHub Actions, Azure Pipelines  
-    - Maven | Jenkins (Basic knowledge)  
-    - Monitoring: CloudWatch, Azure Monitor  
-    - Scripting: YAML, Shell
-    """)
+    st.markdown("**Containerization:**")
+    st.write("- Docker")
+    st.write("- Kubernetes (Basics)")
+
+    st.markdown("**CI/CD:**")
+    st.write("- GitHub Actions (Basic)")
 
 # ----- Projects -----
-st.header("🚀 Projects")
+st.markdown("## 🧪 Projects")
 
-st.subheader("🔐 3-Tier Architecture on Azure using NSG")
-st.markdown("""
-- Designed secure 3-tier structure with NSG for each layer  
-- Controlled traffic between Web, App, and DB tiers  
-- Improved isolation, performance, and compliance
-""")
+st.markdown("### 📌 3-Tier Architecture using Azure NSG")
+st.write("- Created a secure web-app using Azure NSG to control inbound/outbound traffic between Web, App, and DB tiers.")
 
-st.subheader("🌐 AWS VPC with NAT Gateway")
-st.markdown("""
-- Created VPC with public and private subnets  
-- Deployed NAT Gateway for secure internet access to private instances  
-- Configured route tables and security groups for best practices
-""")
+st.markdown("### 📌 AWS VPC with NAT Gateway")
+st.write("- Built a secure VPC setup with public and private subnets and configured NAT gateway to allow outbound internet from private subnet.")
 
-# ----- Achievements -----
-st.header("🏆 Achievements")
-st.markdown("""
-- 🏅 Completed **Multi-Cloud DevOps Certification** from VCube  
-- 🧪 Built live projects showcasing real-world DevOps scenarios  
-- 👨‍💻 Actively contribute to GitHub & stay updated on DevOps trends
-""")
+# ----- Contact -----
+st.markdown("## 📬 Contact Me")
+contact_form = """
+<form action="https://formsubmit.co/YOUR-EMAIL@domain.com" method="POST">
+     <input type="text" name="name" placeholder="Your name" required><br><br>
+     <input type="email" name="email" placeholder="Your email" required><br><br>
+     <textarea name="message" placeholder="Your message here" rows="5" required></textarea><br><br>
+     <button type="submit">Send</button>
+</form>
+"""
 
-# ----- Testimonials -----
-st.header("💬 Testimonials")
-st.markdown("""
-> *"Chandu shows excellent initiative and eagerness to learn cloud technologies. A quick problem solver."*  
-– Instructor, VCube Software Solutions
-
-> *"Impressive dedication towards automation and infrastructure design."*  
-– Project Mentor
-""")
-
-# ----- Education -----
-st.header("🎓 Education")
-
-st.markdown("""
-**B.Tech in Electronics & Communication Engineering**  
-Prakasam Engineering College – 2024 | CGPA: 7.0
-
-**Intermediate (MPC)**  
-Narayana Junior College – 2020 | GPA: 8.6
-
-**SSC**  
-Samskruti High School – 2018 | GPA: 8.8
-""")
-
-# ----- Resume & Contact -----
-st.header("📄 Resume & Contact")
-st.markdown("""
-- 📄 [Download My Resume](https://your-resume-link.com)  
-- 📧 Email: chanduyanamala68@gmail.com  
-- 📞 Phone: +91 8142331266  
-- 🌐 LinkedIn: [chandu-yanamala](https://www.linkedin.com/in/chandu-yanamala-3b12a334a/)
-""")
-
-st.markdown("---")
-st.write("🤝 Open to Full-Time/Fresher Roles | Let's collaborate and grow together!")
-
+st.markdown(contact_form, unsafe_allow_html=True)
