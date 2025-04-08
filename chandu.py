@@ -51,7 +51,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Optional DevOps background banner
-st.image("assets/devops_bg.jpg", use_column_width=True)
+try:
+    bg_image = Image.open("assets/devops_bg.jpg")
+    st.image(bg_image, use_column_width=True)
+except FileNotFoundError:
+    st.warning("DevOps background image not found. Skipping banner.")
+
 
 # ----- Header -----
 col1, col2 = st.columns([1, 2])
