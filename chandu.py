@@ -1,14 +1,18 @@
-import streamlit as st
+# NOTE: To run this script, ensure that Streamlit is installed.
+# You can install it using: pip install streamlit
+
+try:
+    import streamlit as st
+except ModuleNotFoundError:
+    raise ModuleNotFoundError("Streamlit is not installed. Please run 'pip install streamlit' and try again.")
+
 from PIL import Image
-import requests
-from io import BytesIO
 
 # Load your profile image safely
 try:
     image = Image.open("assets/profile.jpg")
 except FileNotFoundError:
-    response = requests.get("https://via.placeholder.com/150")
-    image = Image.open(BytesIO(response.content))
+    image = Image.open("assets/default.jpg")  # Use a local fallback image
 
 # Set page config
 st.set_page_config(page_title="Chandu's Portfolio", page_icon=":briefcase:", layout="wide")
@@ -60,7 +64,7 @@ with col2:
     st.markdown('<div class="title-box">', unsafe_allow_html=True)
     st.title("Chandu Yaramala")
     st.subheader("Fresher | Azure & AWS Cloud | DevOps Enthusiast")
-    st.markdown("<p>Email:chanduyanamala68@gmail.com| GitHub: <a href='https://github.com/Chanduyanamala68' target='_blank'>github.com/yourprofile</a></p>", unsafe_allow_html=True)
+    st.markdown("<p>Email: your_email@example.com | GitHub: <a href='https://github.com/yourprofile' target='_blank'>github.com/yourprofile</a></p>", unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # About section
@@ -102,8 +106,8 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Links Section
 st.markdown('<div class="link-box">', unsafe_allow_html=True)
-st.markdown("[🌐 Visit My GitHub](https://github.com/Chanduyanamala68)", unsafe_allow_html=True)
-st.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/chandu-yanamala-73455a356/)", unsafe_allow_html=True)
+st.markdown("[🌐 Visit My GitHub](https://github.com/yourprofile)", unsafe_allow_html=True)
+st.markdown("[🔗 LinkedIn](https://linkedin.com/in/yourprofile)", unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
